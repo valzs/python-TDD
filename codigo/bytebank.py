@@ -14,6 +14,13 @@ class Funcionario:
     def salario(self):
         return self._salario
 
+    @salario.setter
+    def salario(self, novo_salario):
+        if isinstance(novo_salario, (int, float)):
+            self._salario = novo_salario
+        else:
+            print("Erro: O salário deve ser um número.")
+
     def idade(self):
         data_nasc_quebrada = self._data_nascimento.split('/')
         ano_nascimento = data_nasc_quebrada[-1]
@@ -24,6 +31,13 @@ class Funcionario:
         nome_completo = self.nome.strip()
         nome_quebrado = nome_completo.split(' ')
         return nome_quebrado[-1]
+
+    def decrescimo_salario(self):
+        sobrenomes = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
+        if self.salario >= 100000 and (self.sobrenome() in sobrenomes):
+            decrescimo = self._salario * 0.1
+            self.salario = self._salario - decrescimo
+
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
