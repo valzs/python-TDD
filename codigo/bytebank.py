@@ -19,7 +19,7 @@ class Funcionario:
         if isinstance(novo_salario, (int, float)):
             self._salario = novo_salario
         else:
-            print("Erro: O salário deve ser um número.")
+            print('Erro: O salário deve ser um número.')
 
     def idade(self):
         data_nasc_quebrada = self._data_nascimento.split('/')
